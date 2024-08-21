@@ -2,16 +2,10 @@ import React, { useState } from "react"
 import MemberList from "../Components/MemberList/MemberList"
 import ChatWall from "../Components/ChatWall/ChatWall"
 import Chats from "../Data/Chats.js"
-import { Navigate } from "react-router-dom"
-
-
 
 const Chat = () => {
     const [memberId, setMemberId] = useState(1)
     const [msg, setMsg] = useState(Chats[0].messages);
-    const handleProfile = () =>{
-        Navigate({to} , "./Profile");
-    }
 
     const selectChat = (memId) => {
         const chat = Chats.find(chat => chat.memberId == memId)
@@ -41,14 +35,11 @@ const Chat = () => {
         <section>
             <div className="container py-5">
                 <div className="row">
-                <div className="form-floating">
-                <button onClick={handleProfile}>Perfil</button>
-                </div>
                     <MemberList setMemberId={setMemberId} selectChat={selectChat}/>
                     <ChatWall messages={msg} onClick={onClick} />
                 </div>
             </div>
-            </section>
+        </section>
     )
 }
 

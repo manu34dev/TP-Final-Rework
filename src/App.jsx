@@ -1,28 +1,21 @@
-import './App.css'
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import Login from './login/Login.jsx'
-import Chat from './Chat/Chat.jsx'
+import Home from './Home/Home.jsx'
+import Profile from './Profiles/Profile.jsx'
+import './App.css'
+
 function App() {
-  const logoutHandler = () =>{
-    localStorage.clear()
-    window.location.reload()
-  }
   const user = localStorage.getItem('username')
 
   return (
     <>
-      { !user && <Login />}
-      { user && 
-          
-          <>
-            <div>Bienvenido a Manucho´s Messenger</div><br />
-            <header>
-              <button onClick={logoutHandler}>Cerrar Sesion</button>
-            </header>
-            <div>
-              <Chat />
-            </div>
-          </>
-      }
+      <BrowserRouter>
+          {/* { user && <Link to='/profile'>Perfil</Link> } */}
+          <Routes>
+              <Route path='/' element={user ? <Home/> : <Login/> } />
+              <Route path='/profile' element={<Profile/>} />
+          </Routes>
+      </BrowserRouter>
     </>
   )
 }

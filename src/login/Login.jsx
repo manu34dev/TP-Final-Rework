@@ -9,7 +9,7 @@ const Login = function() {
         localStorage.setItem('username', username);
         localStorage.setItem('email', usermail);
         localStorage.setItem('password', password);
-        window.location.replace("/Home");
+        window.location.replace("/");
     }
 
     return (

@@ -11,9 +11,11 @@ const ChatWall = ({messages, onClick}) => {
 
     const submit = (e) => {
         let textArea = document.getElementById("textAreaExample");
-        onClick(e, textArea); 
         
-        document.getElementById("textAreaExample").value = ''
+        if (textArea.value != '') {
+            onClick(e, textArea)    
+            document.getElementById("textAreaExample").value = ''
+        }
     }
 
     return (
@@ -25,11 +27,11 @@ const ChatWall = ({messages, onClick}) => {
                 <li className="bg-white mb-3">
                     <div data-mdb-input-init className="form-outline">
                         <textarea className="form-control bg-body-tertiary" id="textAreaExample" rows="4"></textarea>
-                        <label className="form-label" for="textAreaExample">Message</label>
+                        <label className="form-label" for="textAreaExample" >Mensaje</label>
                     </div>
                 </li>
                 <button type="button" onClick={(e) => { submit(e) } }
-                    data-mdb-button-init data-mdb-ripple-init className="btn btn-info btn-rounded float-end">Send</button>
+                    data-mdb-button-init data-mdb-ripple-init className="btn btn-info btn-rounded float-end">Enviar</button>
             </ul>
         </div>
     )
