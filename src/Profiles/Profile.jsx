@@ -9,8 +9,8 @@ const Profile = () =>{
         <div>
         <Link to='/'>Volver al Home</Link>
         </div>
-        <p className="UserInfo" >{name}</p>
-        <p className="LoginData">{mail}</p>
+        <p className="UserInfo" >nombre del usuario: {name}</p>
+        <p className="LoginData">email del usuario: {mail}</p>
     </div>
     )
 }
